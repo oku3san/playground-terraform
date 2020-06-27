@@ -21,7 +21,7 @@ resource "aws_lightsail_instance" "playground-lightsail" {
   bundle_id         = "micro_2_0"
   key_pair_name     = "aws_id_rsa"
   provisioner "local-exec" {
-    command = "aws lightsail put-instance-public-ports --instance-name=playground --port-infos fromPort=22,toPort=22,protocol=tcp fromPort=80,toPort=80,protocol=tcp"
+    command = "aws lightsail put-instance-public-ports --instance-name=playground --port-infos fromPort=22,toPort=22,protocol=tcp,cidrs=14.8.17.33/32 fromPort=80,toPort=80,protocol=tcp,cidrs=14.8.17.33/32"
   }
 }
 
